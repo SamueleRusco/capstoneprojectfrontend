@@ -15,7 +15,7 @@ const persistConfig = {
 };
 
 const allReducers = combineReducers({
-  login: registrationReduce,
+  register: registrationReduce,
 });
 
 const persistedReducer = persistReducer(persistConfig, allReducers);
