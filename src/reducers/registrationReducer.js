@@ -1,5 +1,4 @@
-import { REGISTER } from "redux-persist";
-import { LOGIN, REGISTER_USER } from "../actions/loginAction";
+import { LOGIN_USER } from "../actions/loginAction";
 
 const initialState = {
   user: [
@@ -8,13 +7,14 @@ const initialState = {
       username: "",
       email: "",
       password: "",
+      bearerToken: "",
     },
   ],
 };
 
 const registrationReduce = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER:
+    case LOGIN_USER:
       return {
         ...state,
         user: action.payload,

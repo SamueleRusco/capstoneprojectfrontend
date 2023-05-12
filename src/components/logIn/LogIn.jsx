@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function Register() {
+import { LOGIN_USER } from "../../actions/loginAction";
+import { Link } from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
+import { WidthFull } from "@mui/icons-material";
+
+function LogIn() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
+  const [bearerToken, setBearerToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  /*const [isLogged, setIsLogged] = useState(false);*/
 
   const registerFetch = async () => {
     setIsLoading(true);
     try {
-      let response = await fetch("http://localhost:8080/api/auth/register", {
+      let response = await fetch("http://localhost:8080/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,20 +29,41 @@ function Register() {
           password: password,
         }),
       });
-      let data = await response.text();
+
+      let data = await response.json();
+      setBearerToken(data.accessToken);
+      loginDispatch(data.accessToken);
       console.log("text", data);
-      setIsLoading(false);
-      window.location.href = "/login";
+      window.location.href = "/";
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const dispatch = useDispatch();
+
+  const loginDispatch = (bearerToken) => {
+    dispatch({
+      type: LOGIN_USER,
+      payload: [
+        {
+          id: new Date().getTime(),
+          username,
+          email,
+          password,
+          bearerToken,
+          isLogged: true,
+        },
+      ],
+    });
+    setIsLoading(false);
   };
 
   return (
     <div style={{ maxWidth: "50%", marginTop: "10%" }}>
       {!isLoading ? (
         <Form>
-          <h1>Registrati</h1>
+          <h1>Accedi</h1>
 
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Nome Utente</Form.Label>
@@ -79,7 +105,7 @@ function Register() {
             value="Login"
             onClick={registerFetch}
           >
-            Invia Registrazione
+            Accedi
           </Button>
         </Form>
       ) : (
@@ -89,4 +115,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default LogIn;
