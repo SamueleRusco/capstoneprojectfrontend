@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import LogIn from "./components/logIn/LogIn";
 
 function App() {
-  /* const users = useSelector((state) => state.user);*/
   return (
     <div className="App">
       <BrowserRouter>

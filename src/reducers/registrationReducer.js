@@ -7,6 +7,7 @@ const initialState = {
       username: "",
       email: "",
       password: "",
+      role: "",
       bearerToken: "",
     },
   ],

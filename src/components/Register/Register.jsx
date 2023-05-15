@@ -32,6 +32,9 @@ function Register() {
       console.log(err);
     }
   };
+  const redirect = () => {
+    window.location.href = "/login";
+  };
 
   return (
     <div style={{ maxWidth: "50%", marginTop: "10%" }}>
@@ -80,6 +83,14 @@ function Register() {
             onClick={registerFetch}
           >
             Invia Registrazione
+          </Button>
+          <Button
+            variant="primary"
+            type="button"
+            value="Register"
+            onClick={redirect}
+          >
+            già registrato? accedi
           </Button>
         </Form>
       ) : (

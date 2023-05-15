@@ -13,6 +13,7 @@ function LogIn() {
   const [isLogged, setIsLogged] = useState(false);
   const [bearerToken, setBearerToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [role, setRole] = useState("");
 
   const registerFetch = async () => {
     setIsLoading(true);
@@ -31,18 +32,24 @@ function LogIn() {
       });
 
       let data = await response.json();
+      console.log(data.role[0].roleName);
       setBearerToken(data.accessToken);
-      loginDispatch(data.accessToken);
+      setRole(data.role[0].roleName);
+      loginDispatch(data.accessToken, data.role[0].roleName);
+
       console.log("text", data);
       window.location.href = "/";
     } catch (err) {
       console.log(err);
     }
   };
+  const redirect = () => {
+    window.location.href = "/register";
+  };
 
   const dispatch = useDispatch();
 
-  const loginDispatch = (bearerToken) => {
+  const loginDispatch = (bearerToken, role) => {
     dispatch({
       type: LOGIN_USER,
       payload: [
@@ -51,6 +58,7 @@ function LogIn() {
           username,
           email,
           password,
+          role,
           bearerToken,
           isLogged: true,
         },
@@ -106,6 +114,14 @@ function LogIn() {
             onClick={registerFetch}
           >
             Accedi
+          </Button>
+          <Button
+            variant="primary"
+            type="button"
+            value="Register"
+            onClick={redirect}
+          >
+            non sei registrato? registrati
           </Button>
         </Form>
       ) : (
