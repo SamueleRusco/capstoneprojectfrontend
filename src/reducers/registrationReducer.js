@@ -21,20 +21,6 @@ const registrationReduce = (state = initialState, action) => {
         user: action.payload,
       };
 
-    /* return {
-        ...state,
-        commenti: action.payload.reverse(),
-      };*/
-
-    /*case LOGIN:
-      return {
-        //modifica lo stato user cambiando username con quello inserito in fase di registrazione ed il bearer token inserendo quello
-        //ricevuto in risposta dalla chiamata login(ancora da fare)
-        ...state,
-        user: action.payload,
-        isLogged: (state.isLogged = true),
-      };
-*/
     default:
       return state;
   }
