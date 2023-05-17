@@ -85,7 +85,11 @@ const ImgFetch = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "green",
+      }}
+    >
       <p>mi si vede :</p>
       <form onSubmit={handleUpload}>
         <input

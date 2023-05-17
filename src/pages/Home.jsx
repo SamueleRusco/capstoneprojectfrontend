@@ -3,6 +3,8 @@ import LogOut from "../components/LogOut/LogOut";
 
 import { useSelector } from "react-redux";
 import ImgFetch from "../components/ImgFetch/ImgFetch";
+import SpotifyFetch from "../components/SpotifyFetch/SpotifyFetch";
+import NewsLetter from "../components/NewsLetter/NewsLetter";
 
 const Home = () => {
   const role = useSelector((state) => state.register.user[0].role);
@@ -11,7 +13,11 @@ const Home = () => {
   {
     if (role === "ROLE_USER") {
       return (
-        <div>
+        <div
+          style={{
+            backgroundColor: "yellow",
+          }}
+        >
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina user</p>
           <LogOut></LogOut>
@@ -19,16 +25,27 @@ const Home = () => {
       );
     } else if (role === "ROLE_ADMIN") {
       return (
-        <div>
+        <div
+          style={{
+            backgroundColor: "yellow",
+          }}
+        >
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina ADMIN</p>
+
+          <NewsLetter />
+          <SpotifyFetch />
           <ImgFetch />
           <LogOut></LogOut>
         </div>
       );
     } else {
       return (
-        <div>
+        <div
+          style={{
+            backgroundColor: "yellow",
+          }}
+        >
           <p>c'è stato un problema</p>
           <LogOut></LogOut>
         </div>
