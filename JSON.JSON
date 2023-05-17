@@ -1,0 +1,46 @@
+{
+  "href": "https://api.spotify.com/v1/users/31kjw2awjzxglnxw7y42geuj4cwe/playlists?offset=0&limit=50",
+  "limit": 50,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total": 12,
+  "items": [
+    {
+      "collaborative": false,
+      "description": "DIJAMI Soundtrack is a captivating label that takes you on a cinematic journey through the mesmerizing world of film music. Whether you&#x27;re studying, working, or simply want to experience the magic of film through music, DIJAMI Soundtracks is the perfect companion.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4lGS1TcQJKAREakjznnt2T"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4lGS1TcQJKAREakjznnt2T",
+      "id": "4lGS1TcQJKAREakjznnt2T",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67706c0000bebbaad0bea5834d5cd9440d930a",
+          "height": null,
+          "width": null
+        }
+      ],
+      "name": "DIJAMI SOUNDTRACKS",
+      "owner": {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/31kjw2awjzxglnxw7y42geuj4cwe"
+        },
+        "href": "https://api.spotify.com/v1/users/31kjw2awjzxglnxw7y42geuj4cwe",
+        "id": "31kjw2awjzxglnxw7y42geuj4cwe",
+        "type": "user",
+        "uri": "spotify:user:31kjw2awjzxglnxw7y42geuj4cwe",
+        "display_name": "JKL"
+      },
+      "public": true,
+      "snapshot_id": "NiwyYjA0ZWVlYzNhNTFiNzQ1YTk2NTExMjNiMWRiMWY3NWNjNTlmMjU2",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4lGS1TcQJKAREakjznnt2T/tracks",
+        "total": 10
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4lGS1TcQJKAREakjznnt2T",
+      "primary_color": null
+    }
+  ]
+}
