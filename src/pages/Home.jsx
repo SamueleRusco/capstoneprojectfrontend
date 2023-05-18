@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import ImgFetch from "../components/ImgFetch/ImgFetch";
 import SpotifyFetch from "../components/SpotifyFetch/SpotifyFetch";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
+import EventoAdmin from "../components/Evento/EventoAdmin";
 
 const Home = () => {
   const role = useSelector((state) => state.register.user[0].role);
@@ -32,11 +33,11 @@ const Home = () => {
         >
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina ADMIN</p>
-
-          <NewsLetter />
+          <EventoAdmin />
+          {/* <NewsLetter />
           <SpotifyFetch />
           <ImgFetch />
-          <LogOut></LogOut>
+        <LogOut></LogOut>*/}
         </div>
       );
     } else {

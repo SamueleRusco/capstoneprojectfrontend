@@ -1,30 +1,62 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { IMG_ID } from "../../actions/imgAction";
 
-const ImgFetch = () => {
+const ImgFetch = ({}) => {
+  let idState = useSelector((state) => state.idImg.id);
   const bearerToken = useSelector(
     (state) => state.register.user[0].bearerToken
   );
-  const [file, setFile] = useState();
-  const [fileGet, setFileGet] = useState();
+  const [fileGet, setFileGet] = useState([]);
+  const [file, setFile] = useState([]);
+  const [idFoto, setIdFoto] = useState();
 
+  const dispatch = useDispatch();
+
+  const handleFile = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    setFile(file);
+    idState = file.id;
+  };
+
+  useEffect(() => {
+    imgDispatch();
+    console.log(idFoto);
+  }, [idFoto]);
+
+  const imgDispatch = () => {
+    dispatch({
+      type: IMG_ID,
+      payload: {
+        idFoto,
+      },
+    });
+  };
   const uploadImage = async (formData) => {
-    var myHeaders = new Headers();
+    try {
+      const response = await fetch("http://localhost:8080/api/images", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${bearerToken}` },
+        body: formData,
+        redirect: "follow",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log("id immagine", data);
 
-    myHeaders.append("Authorization", "Bearer " + bearerToken);
-    myHeaders.append("Access-Control-Allow-Origin", "*");
+        dispatch({
+          type: IMG_ID,
+          payload: data,
+        });
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: formData,
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:8080/api/images", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+        console.log("Immagine caricata con successo.", data);
+      } else {
+        console.error("Errore durante il caricamento dell'immagine.");
+      }
+    } catch (error) {
+      console.error("Errore durante la richiesta POST:", error);
+    }
   };
 
   const getImage = async () => {
@@ -33,7 +65,7 @@ const ImgFetch = () => {
         "http://localhost:8080/api/images/listaimmagini"
       );
       const data = await response.json();
-      console.log(data, "immagine json");
+      console.log(data, "immagini json");
       setFileGet(data);
     } catch (error) {
       console.error("Errore durante la richiesta GET:", error);
@@ -67,50 +99,44 @@ const ImgFetch = () => {
   };
 
   useEffect(() => {
-    getImage();
+    //getImage();
   }, []);
 
-  function handleFile(event) {
-    setFile(event.target.files[0]);
-    //console.log(event.target.files[0]);
-  }
-
-  function handleUpload(e) {
+  const handleUpload = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    uploadImage(formData);
-    console.log("funziono?", file);
-    //console.log(formData);
-  }
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      uploadImage(formData);
+      console.log("Caricamento immagine in corso", file);
 
+      // Resetta il valore del file dopo l'upload
+      //setFile(null);
+    }
+  };
   return (
-    <div
-      style={{
-        backgroundColor: "green",
-      }}
-    >
-      <p>mi si vede :</p>
-      <form onSubmit={handleUpload}>
+    <div style={{ backgroundColor: "green" }}>
+      <p>Immagini:</p>
+      <form>
         <input
           type="file"
           name="file"
           accept="image/png, image/jpeg"
           onChange={handleFile}
         />
-        <button>upload</button>
+        <button type="submit" onClick={handleUpload}>
+          Carica
+        </button>
       </form>
-      {fileGet &&
-        fileGet.map((image) => (
-          <div>
-            <img
-              key={image.id}
-              src={`data:image/png;base64,${image.imageData}`}
-              alt={image.fileName}
-            />
-            <button onClick={() => deleteImg(image.id)}>Elimina</button>
-          </div>
-        ))}
+      {fileGet.map((image) => (
+        <div key={image.id}>
+          <img
+            src={`data:image/png;base64,${image.imageData}`}
+            alt={image.fileName}
+          />
+          <button onClick={() => deleteImg(image.id)}>Elimina</button>
+        </div>
+      ))}
     </div>
   );
 };
