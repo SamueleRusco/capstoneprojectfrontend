@@ -6,6 +6,7 @@ import ImgFetch from "../components/ImgFetch/ImgFetch";
 import SpotifyFetch from "../components/SpotifyFetch/SpotifyFetch";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import EventoAdmin from "../components/Evento/EventoAdmin";
+import EventoUser from "../components/Evento/EventoUser";
 
 const Home = () => {
   const role = useSelector((state) => state.register.user[0].role);
@@ -21,6 +22,7 @@ const Home = () => {
         >
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina user</p>
+          <EventoUser />
           <LogOut></LogOut>
         </div>
       );
@@ -34,10 +36,10 @@ const Home = () => {
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina ADMIN</p>
           <EventoAdmin />
-          {/* <NewsLetter />
+          <NewsLetter />
           <SpotifyFetch />
           <ImgFetch />
-        <LogOut></LogOut>*/}
+          <LogOut></LogOut>
         </div>
       );
     } else {

@@ -53,6 +53,7 @@ const EventoAdmin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     eventoPost();
+    handleClose();
   };
 
   const handleImmagineEventoIdChange = (event) => {
