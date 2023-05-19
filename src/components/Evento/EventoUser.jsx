@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const EventoUser = () => {
@@ -30,7 +31,7 @@ const EventoUser = () => {
       });
       const result = await response.json();
       console.log(result);
-      setEventi(result);
+      setEventi(result.reverse());
       getImage();
     } catch (error) {
       console.log("error", error);
@@ -41,8 +42,8 @@ const EventoUser = () => {
     const immagine = fileGet.find((img) => img.id === id);
     if (immagine) {
       return (
-        <img
-          style={{ width: "50px" }}
+        <Card.Img
+          style={{ width: "100px" }}
           src={`data:image/png;base64, ${immagine.imageData}`}
           alt="Immagine evento"
         />
@@ -57,15 +58,22 @@ const EventoUser = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {eventi &&
         eventi.map((element, i) => (
-          <div key={i}>
-            <div>{element.titoloEvento}</div>
+          <Card key={i}>
             {renderImmagine(element.immagineEvento)}
-          </div>
+            <Card.Body>
+              <Card.Title>{element.titoloEvento}</Card.Title>
+
+              <Card.Text>{element.descrizione}</Card.Text>
+              <div>
+                <span>{element.dataEvento}</span> * <span>{element.luogo}</span>
+              </div>
+            </Card.Body>
+          </Card>
         ))}
-    </div>
+    </>
   );
 };
 

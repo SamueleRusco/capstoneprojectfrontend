@@ -109,15 +109,12 @@ const ImgFetch = ({}) => {
       formData.append("file", file);
       uploadImage(formData);
       console.log("Caricamento immagine in corso", file);
-
-      // Resetta il valore del file dopo l'upload
-      //setFile(null);
     }
   };
   return (
     <div style={{ backgroundColor: "green" }}>
       <p>Immagini:</p>
-      <form>
+      <div>
         <input
           type="file"
           name="file"
@@ -127,7 +124,7 @@ const ImgFetch = ({}) => {
         <button type="submit" onClick={handleUpload}>
           Carica
         </button>
-      </form>
+      </div>
       {fileGet.map((image) => (
         <div key={image.id}>
           <img

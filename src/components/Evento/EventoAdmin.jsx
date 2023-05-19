@@ -155,11 +155,11 @@ const EventoAdmin = () => {
 
             <Form.Group controlId="immagineEventoId">
               <Form.Label>ID Immagine Evento</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 type="text"
                 value={idState}
                 onChange={handleImmagineEventoIdChange}
-              />
+              /> */}
               <ImgFetch />
             </Form.Group>
 

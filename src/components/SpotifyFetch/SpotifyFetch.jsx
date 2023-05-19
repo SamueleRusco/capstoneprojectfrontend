@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SpotifyFetch = () => {
   const [accessToken, setAccessToken] = useState({});
@@ -74,13 +76,32 @@ const SpotifyFetch = () => {
     <div
       style={{
         backgroundColor: "grey",
-        color: "white",
       }}
     >
-      sto fetchando
       {playlist.items
         ? playlist.items.map((element) => (
-            <p key={element.id}>{element.name}</p>
+            <div key={element.id}>
+              <Card
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Card.Img
+                  variant="top"
+                  style={{ width: "100px" }}
+                  src={element.images[0].url}
+                />
+                <Card.Body>
+                  <Card.Title>{element.name}</Card.Title>
+                  <Card.Text>{element.description}</Card.Text>
+                  <Link to={element.external_urls.spotify}>
+                    Ascoltami su Spotify
+                  </Link>
+                </Card.Body>
+              </Card>
+            </div>
           ))
         : null}
     </div>

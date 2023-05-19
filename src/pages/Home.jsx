@@ -7,6 +7,7 @@ import SpotifyFetch from "../components/SpotifyFetch/SpotifyFetch";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import EventoAdmin from "../components/Evento/EventoAdmin";
 import EventoUser from "../components/Evento/EventoUser";
+import FollowMe from "../components/FollowMe/FollowMe";
 
 const Home = () => {
   const role = useSelector((state) => state.register.user[0].role);
@@ -35,6 +36,7 @@ const Home = () => {
         >
           <p>questa è la home</p>
           <p>sei loggato come: {role} pagina ADMIN</p>
+          <FollowMe />
           <EventoAdmin />
           <NewsLetter />
           <SpotifyFetch />
