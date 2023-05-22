@@ -22,7 +22,6 @@ const ImgFetch = ({}) => {
 
   useEffect(() => {
     imgDispatch();
-    console.log(idFoto);
   }, [idFoto]);
 
   const imgDispatch = () => {

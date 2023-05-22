@@ -8,27 +8,27 @@ import Row from "react-bootstrap/Row";
 const NewsLetter = () => {
   const [validated, setValidated] = useState(false);
 
-  const postNewsLetter = async (payload) => {
-    try {
-      const response = await fetch("http://localhost:8080/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+  // const postNewsLetter = async (payload) => {
+  //   try {
+  //     const response = await fetch("http://localhost:8080/api/newsletter", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(payload),
+  //     });
 
-      if (response.ok) {
-        console.log("dati inviati correttamente", response);
-      } else {
-        console.log("c'è stato un problema");
-      }
-    } catch (error) {
-      console.log(error, "problemone");
-      // Si è verificato un errore durante la richiesta
-      // Aggiungi qui le azioni da eseguire in caso di errore
-    }
-  };
+  //     if (response.ok) {
+  //       console.log("dati inviati correttamente", response);
+  //     } else {
+  //       console.log("c'è stato un problema");
+  //     }
+  //   } catch (error) {
+  //     console.log(error, "problemone");
+  //     // Si è verificato un errore durante la richiesta
+  //     // Aggiungi qui le azioni da eseguire in caso di errore
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ const NewsLetter = () => {
       consensoPrivacy: true,
     };
 
-    await postNewsLetter(payload);
+    //await postNewsLetter(payload);
 
     setValidated(true);
   };

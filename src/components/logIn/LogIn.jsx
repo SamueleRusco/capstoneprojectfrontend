@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { LOGIN_USER } from "../../actions/loginAction";
 import { Link } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
-import { WidthFull } from "@mui/icons-material";
+import { Button, Form, Image } from "react-bootstrap";
+
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -72,6 +72,7 @@ function LogIn() {
       {!isLoading ? (
         <Form>
           <h1>Accedi</h1>
+          <Image />
 
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Nome Utente</Form.Label>
