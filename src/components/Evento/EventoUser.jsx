@@ -66,7 +66,7 @@ const EventoUser = () => {
             {renderImmagine(element.immagineEvento)}
             <Card.Body style={{textAlign:"start"}}>
               <Card.Title>{element.titoloEvento}</Card.Title>
-              <span>scopri di piu!</span>
+              <span>Scopri di piu!</span>
             </Card.Body>
           </Card>
           </div>
