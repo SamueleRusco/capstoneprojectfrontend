@@ -112,7 +112,7 @@ const ImgFetch = ({}) => {
   };
   return (
     <div style={{ backgroundColor: "green" }}>
-      <p>Immagini:</p>
+     
       <div>
         <input
           type="file"

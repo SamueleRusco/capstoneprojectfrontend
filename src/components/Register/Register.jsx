@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from "../../components/assets/images/JKL_limited_LOGO_1_WHITE.png";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -37,13 +38,18 @@ function Register() {
   };
 
   return (
-    <div style={{ maxWidth: "50%", marginTop: "10%" }}>
+    <div>
       {!isLoading ? (
-        <Form>
-          <h1>Registrati</h1>
+        <Form style={{  position: "fixed",
+  top: "40%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+    }}>
+          <div className="d-flex align-items-center"><img src={logo} style={{width:"12em"}}></img>
+          <h1 className="ms-5" >SIGN UP</h1></div>
 
-          <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Nome Utente</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicText" style={{marginTop:"20%"}}>
+          <h6 className="dancing ">Hello!</h6>
             <Form.Control
               type="text"
               placeholder="Username"
@@ -53,21 +59,18 @@ function Register() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Indirizzo E-Mail</Form.Label>
+          
             <Form.Control
               type="email"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Form.Text className="text-muted">
-              Non condivideremo con nessuno L'indirizzo e-mail che ci stai
-              fornendo.
-            </Form.Text>
+            
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            
             <Form.Control
               type="password"
               placeholder="Password"
@@ -77,6 +80,7 @@ function Register() {
           </Form.Group>
 
           <Button
+          className="redButton"
             variant="primary"
             type="button"
             value="Login"
@@ -84,14 +88,20 @@ function Register() {
           >
             Invia Registrazione
           </Button>
-          <Button
+          <p
             variant="primary"
             type="button"
             value="Register"
             onClick={redirect}
+            style={{
+              width:"100%",
+              position: "fixed",
+              bottom: "-30%",
+              left: "50%",
+              transform: "translateX(-50%)",}}
           >
             già registrato? accedi
-          </Button>
+          </p>
         </Form>
       ) : (
         <p>sto caricando</p>

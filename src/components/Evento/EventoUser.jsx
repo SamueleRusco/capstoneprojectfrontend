@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const EventoUser = () => {
@@ -58,22 +58,20 @@ const EventoUser = () => {
   }, []);
 
   return (
-    <>
+    <Row>
       {eventi &&
         eventi.map((element, i) => (
-          <Card key={i}>
+          <div class="col-6 col-md-4 col-lg-2" key={i}>
+          <Card style={{backgroundColor:"transparent"}}>
             {renderImmagine(element.immagineEvento)}
-            <Card.Body>
+            <Card.Body style={{textAlign:"start"}}>
               <Card.Title>{element.titoloEvento}</Card.Title>
-
-              <Card.Text>{element.descrizione}</Card.Text>
-              <div>
-                <span>{element.dataEvento}</span> * <span>{element.luogo}</span>
-              </div>
+              <span>scopri di piu!</span>
             </Card.Body>
           </Card>
+          </div>
         ))}
-    </>
+    </Row>
   );
 };
 

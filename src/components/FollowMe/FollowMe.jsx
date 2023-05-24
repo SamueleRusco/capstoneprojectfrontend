@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import { Button, Modal } from "react-bootstrap";
+import { Box, Typography } from "@mui/material";
 
 const FollowMe = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,16 +16,20 @@ const FollowMe = () => {
     setShowModal(false);
   };
 
+
+
+ 
+
   return (
     <div>
-      <Button variant="primary" onClick={handleButtonClick}>
-        Follow Me
-      </Button>
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>QR Code</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+      <li className="linkTo" onClick={handleButtonClick}>
+        FOLLOW ME
+      </li>
+
+   
+      <Modal show={showModal} size="sm" onHide={handleCloseModal} backdropClassName="modal-backdrop-transparent">
+        
+        <Modal.Body  style={{ padding: '5px' }}>
           <QRCode value={fixedLink} />
         </Modal.Body>
       </Modal>

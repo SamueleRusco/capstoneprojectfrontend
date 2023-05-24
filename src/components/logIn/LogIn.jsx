@@ -5,6 +5,7 @@ import { LOGIN_USER } from "../../actions/loginAction";
 import { Link } from "react-router-dom";
 import { Button, Form, Image } from "react-bootstrap";
 
+import logo from "../assets/images/JKL_limited_LOGO_1_WHITE.png"
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -14,6 +15,8 @@ function LogIn() {
   const [bearerToken, setBearerToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [role, setRole] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
 
   const registerFetch = async () => {
     setIsLoading(true);
@@ -68,14 +71,19 @@ function LogIn() {
   };
 
   return (
-    <div style={{ maxWidth: "50%", marginTop: "10%" }}>
+    <div style={{  position: "fixed",
+  top: "40%",
+  left: "50%",
+  transform: "translate(-50%, -50%)", 
+  }}>
       {!isLoading ? (
         <Form>
-          <h1>Accedi</h1>
-          <Image />
-
-          <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Nome Utente</Form.Label>
+          
+          <div className="d-flex align-items-center"><img src={logo} style={{width:"12em"}}></img>
+          <h1 className="ms-5" >LOGIN</h1></div>
+          
+          <Form.Group className="mb-3" controlId="formBasicText" style={{marginTop:"20%"}}>
+            <h6 className="dancing ">Welcome Back!</h6>
             <Form.Control
               type="text"
               placeholder="Username"
@@ -85,21 +93,18 @@ function LogIn() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Indirizzo E-Mail</Form.Label>
+            
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Form.Text className="text-muted">
-              Non condivideremo con nessuno L'indirizzo e-mail che ci stai
-              fornendo.
-            </Form.Text>
+            
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            
             <Form.Control
               type="password"
               placeholder="Password"
@@ -107,26 +112,45 @@ function LogIn() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+          {/* <Form.Group className="mb-3" controlId="formBasicPassword">
+            
+            <Form.Control
+              type="password"
+              placeholder="Conferma la tua password"
+              value={password}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </Form.Group> */}
 
           <Button
+          className="redButton"
             variant="primary"
             type="button"
             value="Login"
             onClick={registerFetch}
+           
           >
-            Accedi
+           <span className="buttonSpan">Accedi</span> 
           </Button>
-          <Button
+          <p
             variant="primary"
             type="button"
             value="Register"
             onClick={redirect}
+            style={{ width:"100%",
+              position: "fixed",
+              bottom: "-30%",
+              left: "50%",
+              transform: "translateX(-50%)", }}
+            
           >
             non sei registrato? registrati
-          </Button>
+          </p>
         </Form>
       ) : (
-        <p>sto caricando</p>
+        <svg viewBox="25 25 50 50">
+  <circle r="20" cy="50" cx="50"></circle>
+</svg>
       )}
     </div>
   );

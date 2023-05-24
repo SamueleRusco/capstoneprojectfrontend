@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SpotifyFetch = () => {
@@ -37,6 +37,7 @@ const SpotifyFetch = () => {
       if (response.ok) {
         const data = await response.json();
         setAccessToken(data);
+        console.log(data)
       } else {
         console.log("Errore nella risposta dalla richiesta API");
       }
@@ -73,32 +74,41 @@ const SpotifyFetch = () => {
     }
   };
   return (
-    <div
+    <div className="row d-flex"
       style={{
-        backgroundColor: "grey",
+        backgroundColor: "black",
+      
       }}
     >
       {playlist.items
         ? playlist.items.map((element) => (
-            <div key={element.id}>
+            <div className="col-6 col-md-4 col-lg-3" style={{ backgroundColor:"black",}} key={element.id}>
               <Card
+             
                 style={{
                   display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  flexDirection:"column",
+                  justifyContent: "start",
+                  alignItems: "start",
+                  backgroundColor:"black",
+                  borderRadius:"0",
+                  margin:"10px",
+                 
+                  
+
                 }}
               >
                 <Card.Img
                   variant="top"
-                  style={{ width: "100px" }}
+                  style={{ width: "150px", borderRadius:"0" }}
                   src={element.images[0].url}
                 />
-                <Card.Body>
-                  <Card.Title>{element.name}</Card.Title>
-                  <Card.Text>{element.description}</Card.Text>
-                  <Link to={element.external_urls.spotify}>
+                <Card.Body style={{padding:"0"}}>
+                  <Card.Title style={{ textAlign:"start", marginTop:"10px"}}>{element.name}</Card.Title>
+                  {/* <Card.Text>{element.description}</Card.Text> */}
+                  {/* <Link to={element.external_urls.spotify}>
                     Ascoltami su Spotify
-                  </Link>
+                  </Link> */}
                 </Card.Body>
               </Card>
             </div>
