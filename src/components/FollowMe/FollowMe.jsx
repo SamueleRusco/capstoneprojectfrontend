@@ -27,9 +27,9 @@ const FollowMe = () => {
       </li>
 
    
-      <Modal show={showModal} size="sm" onHide={handleCloseModal} backdropClassName="modal-backdrop-transparent">
+      <Modal show={showModal} size="sm" onHide={handleCloseModal} className="modalFollow">
         
-        <Modal.Body  style={{ padding: '5px' }}>
+        <Modal.Body  >
           <QRCode value={fixedLink} />
         </Modal.Body>
       </Modal>

@@ -97,11 +97,11 @@ const EventoAdmin = () => {
 
   return role === "ROLE_ADMIN" ? (
     <div>
-      evento
-      <Button variant="primary" onClick={handleShow}>
+      <h1>PAGINA EVENTI</h1>
+      <Button variant="primary" onClick={handleShow} className="redButton">
         Aggiungi un nuovo evento!
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="modalEvent">
         <Modal.Header closeButton>
           <Modal.Title>Il tuo Evento</Modal.Title>
         </Modal.Header>
@@ -111,24 +111,27 @@ const EventoAdmin = () => {
               <Form.Label>Luogo</Form.Label>
               <Form.Control
                 type="text"
+                placeholder="Luogo"
                 value={luogo}
                 onChange={handleLuogoChange}
               />
             </Form.Group>
 
             <Form.Group controlId="titoloEvento">
-              <Form.Label>Titolo Evento</Form.Label>
+             <Form.Label>Titolo Evento</Form.Label>
               <Form.Control
                 type="text"
+                placeholder="Titolo Evento"
                 value={titoloEvento}
                 onChange={handleTitoloEventoChange}
               />
             </Form.Group>
 
             <Form.Group controlId="descrizione">
-              <Form.Label>Descrizione</Form.Label>
+             <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 as="textarea"
+                placeholder="Descrizione..."
                 rows={3}
                 value={descrizione}
                 onChange={handleDescrizioneChange}
@@ -139,6 +142,7 @@ const EventoAdmin = () => {
               <Form.Label>Data Evento</Form.Label>
               <Form.Control
                 type="date"
+                placeholder="Data Evento"
                 value={dataEvento}
                 onChange={handleDataEventoChange}
               />
@@ -154,18 +158,14 @@ const EventoAdmin = () => {
             </Form.Group>
 
             <Form.Group controlId="immagineEventoId">
-              <Form.Label>ID Immagine Evento</Form.Label>
-              {/* <Form.Control
-                type="text"
-                value={idState}
-                onChange={handleImmagineEventoIdChange}
-              /> */}
+              <Form.Label>Aggiungi un'immagine:</Form.Label>             
               <ImgFetch />
             </Form.Group>
-
-            <Button variant="primary" type="submit">
+<div className="d-flex justify-content-between"><div></div>
+            <Button variant="primary" type="submit" className="redButton" >
               Aggiungi Evento
             </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

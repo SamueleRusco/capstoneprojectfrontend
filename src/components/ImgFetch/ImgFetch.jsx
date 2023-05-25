@@ -18,6 +18,12 @@ const ImgFetch = ({}) => {
     const file = event.target.files[0];
     setFile(file);
     idState = file.id;
+   
+      const formData = new FormData();
+      formData.append("file", file);
+      uploadImage(formData);
+      console.log("Caricamento immagine in corso", file);
+    
   };
 
   useEffect(() => {
@@ -85,7 +91,7 @@ const ImgFetch = ({}) => {
       );
       if (response.ok) {
         console.log(`Immagine con ID ${id} eliminata con successo.`);
-        // Aggiorna la lista delle immagini
+      
         getImage();
       } else {
         console.error(
@@ -97,11 +103,9 @@ const ImgFetch = ({}) => {
     }
   };
 
-  useEffect(() => {
-    //getImage();
-  }, []);
+  
 
-  const handleUpload = (e) => {
+ /*const handleUpload = (e) => {
     e.preventDefault();
     if (file) {
       const formData = new FormData();
@@ -109,20 +113,21 @@ const ImgFetch = ({}) => {
       uploadImage(formData);
       console.log("Caricamento immagine in corso", file);
     }
-  };
+  };*/
   return (
-    <div style={{ backgroundColor: "green" }}>
+    <div style={{ backgroundColor: "transparent" }}>
      
       <div>
+        <div class="customUploadButton">
         <input
           type="file"
           name="file"
           accept="image/png, image/jpeg"
           onChange={handleFile}
+         id="fileInput"
         />
-        <button type="submit" onClick={handleUpload}>
-          Carica
-        </button>
+        <label for="fileInput">Select File..</label></div>
+        
       </div>
       {fileGet.map((image) => (
         <div key={image.id}>
