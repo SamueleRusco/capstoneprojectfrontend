@@ -105,15 +105,6 @@ const ImgFetch = ({}) => {
 
   
 
- /*const handleUpload = (e) => {
-    e.preventDefault();
-    if (file) {
-      const formData = new FormData();
-      formData.append("file", file);
-      uploadImage(formData);
-      console.log("Caricamento immagine in corso", file);
-    }
-  };*/
   return (
     <div style={{ backgroundColor: "transparent" }}>
      

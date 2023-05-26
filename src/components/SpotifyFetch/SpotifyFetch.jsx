@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 const SpotifyFetch = () => {
   const [accessToken, setAccessToken] = useState({});
@@ -63,7 +64,7 @@ const SpotifyFetch = () => {
       if (response.ok) {
         const data = await response.json();
         setPlaylist(data);
-        console.log(data);
+        console.log("saaa", data);
       } else if (response.status === 401) {
         await tokenFetch();
       } else {
@@ -82,35 +83,23 @@ const SpotifyFetch = () => {
     >
       {playlist.items
         ? playlist.items.map((element) => (
-            <div className="col-6 col-md-4 col-lg-3" style={{ backgroundColor:"black",}} key={element.id}>
-              <Card
-             
-                style={{
-                  display: "flex",
-                  flexDirection:"column",
-                  justifyContent: "start",
-                  alignItems: "start",
-                  backgroundColor:"black",
-                  borderRadius:"0",
-                  margin:"10px",
-                 
-                  
-
-                }}
-              >
+            <div className="col-6 col-md-4 col-lg-3 " style={{ backgroundColor:"black",}} key={element.id}>
+               
+              <Card className="cardSpotify">
                 <Card.Img
                   variant="top"
-                  style={{ width: "150px", borderRadius:"0" }}
+                  style={{ width: "150px", }}
                   src={element.images[0].url}
                 />
                 <Card.Body style={{padding:"0"}}>
                   <Card.Title style={{ textAlign:"start", marginTop:"10px"}}>{element.name}</Card.Title>
-                  {/* <Card.Text>{element.description}</Card.Text> */}
-                  {/* <Link to={element.external_urls.spotify}>
-                    Ascoltami su Spotify
-                  </Link> */}
+                 
+                 <Link className="spotilink" style={{textDecoration:"none"}} to={element.external_urls.spotify} target="blank">
+                   <PlayCircleOutlineIcon style={{animation:"none",}}/> Ascoltami su Spotify!
+                  </Link>
                 </Card.Body>
               </Card>
+              
             </div>
           ))
         : null}

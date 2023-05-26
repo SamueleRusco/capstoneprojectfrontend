@@ -209,6 +209,11 @@ circle {
   list-style: none;
 }
 
+.goHome:hover {
+  color: white
+}
+
+
 .navBar .linkTo:hover {
   color: yellow !important;
   font-size: 2.2em !important;
@@ -320,4 +325,71 @@ circle {
   height: 100%;
   cursor: pointer;
   z-index: 1;
+}
+
+.cardSpotify {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: black;
+  border-radius: 0;
+  margin: 10px;
+  text-decoration: none;
+  width: 12rem;
+  border-radius: 10PX;
+  padding: 5px;
+  transition: transform 0.5s, margin-left 0.5s, margin-top 0.5s, background-color 0.5s;
+}
+
+.cardSpotify .spotilink {
+  text-decoration: none;
+  color: white;
+  display: none;
+}
+
+.cardSpotify .card-img-top {
+  border-radius: 5px;
+}
+
+.cardSpotify:hover {
+  transform: scale(1.1);
+  z-index: 3;
+  margin-left: 30px;
+  margin-top: 30px;
+  background-color: rgb(73, 73, 73);
+}
+
+.cardSpotify:hover .spotilink {
+  display: block;
+}
+
+.eventCard {
+  width: 320px;
+  background-color: transparent;
+  padding: 10px;
+
+}
+
+.eventCard:hover {
+  background-color: grey;
+  flex-direction: row;
+}
+
+.eventImg {
+  width: 100px;
+}
+
+.eventCard:hover .eventImg {
+  width: 130;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.eventDesc {
+  display: none;
+}
+
+.eventCard:hover .eventDesc {
+  display: block;
 }

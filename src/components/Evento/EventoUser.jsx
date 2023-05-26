@@ -43,7 +43,8 @@ const EventoUser = () => {
     if (immagine) {
       return (
         <Card.Img
-          style={{ width: "100px" }}
+        className="eventImg"
+         
           src={`data:image/png;base64, ${immagine.imageData}`}
           alt="Immagine evento"
         />
@@ -61,12 +62,12 @@ const EventoUser = () => {
     <Row>
       {eventi &&
         eventi.map((element, i) => (
-          <div class="col-6 col-md-4 col-lg-2" key={i}>
-          <Card style={{backgroundColor:"transparent"}}>
+          <div key={i} style={{margin:"10px"}}>
+          <Card  className="eventCard">
             {renderImmagine(element.immagineEvento)}
             <Card.Body style={{textAlign:"start"}}>
               <Card.Title>{element.titoloEvento}</Card.Title>
-              <span>Scopri di piu!</span>
+              <Card.Text className="eventDesc">{element.descrizione}</Card.Text>
             </Card.Body>
           </Card>
           </div>
