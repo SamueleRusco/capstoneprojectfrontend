@@ -365,20 +365,30 @@ circle {
 }
 
 .eventCard {
-  width: 320px;
+  min-width: 320px;
+  max-width: fit-content;
   background-color: transparent;
   padding: 10px;
+  flex-direction: row;
 
 }
 
 .eventCard:hover {
   background-color: grey;
-  flex-direction: row;
+
 }
 
-.eventImg {
-  width: 100px;
+.clickMeDetails {
+  display: none;
+
 }
+
+.eventCard:hover .clickMeDetails {
+  display: block;
+
+}
+
+
 
 .eventCard:hover .eventImg {
   width: 130;
@@ -390,6 +400,15 @@ circle {
   display: none;
 }
 
-.eventCard:hover .eventDesc {
-  display: block;
+
+
+.dateSquare {
+  width: 100px;
+  border-radius: 10px;
+  aspect-ratio: 1/1;
+  background-color: white;
+  color: red;
+  border: 3px solid grey;
+
+
 }
