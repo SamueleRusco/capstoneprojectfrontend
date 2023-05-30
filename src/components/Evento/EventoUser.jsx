@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Modal, ModalBody, Row } from "react-bootstrap";
+import {  Card, Modal, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import moment from 'moment';
+
 
 const EventoUser = () => {
   const bearerTokenNum = useSelector(
@@ -72,10 +72,8 @@ const closeModal = (index) => {
   const dateConverter = (element) =>{
       const moment = require('moment');
   const date = moment(element.dataEvento);
-  const giorno = date.format('DD'); // Restituisce il nome del giorno della settimana
-  const giornoName = date.format('dddd')
-  const mese = date.format('MMMM'); // Restituisce il nome completo del mese
-  const anno = date.format('YYYY'); // Restituisce l'anno come una stringa
+  const giorno = date.format('DD');
+  const mese = date.format('MMMM');  
 
   return (
     <div className="dateSquare" style={{margin:"0", padding:"0"}}>
@@ -89,14 +87,14 @@ const closeModal = (index) => {
 
   useEffect(() => {
   fetchData();
-  }, []);
+  });
 
   return (
     <Row>
       {eventi &&
         eventi.map((element, index) => (
-  <div key={index} style={{ margin: "10px" }}>
-    <Card className="eventCard" onClick={() => openModal(index)}>
+  <div className="col" key={index} style={{ margin: "10px" }}>
+    <Card className="eventCard"  onClick={() => openModal(index)}>
             {dateConverter(element)}
             {/* {renderImmagine(element.immagineEvento)} */}
             
@@ -106,20 +104,22 @@ const closeModal = (index) => {
               <Card.Text className="eventDesc">{element.descrizione}</Card.Text>
             </Card.Body>
           </Card>
-          <Modal show={showModal[index]} onHide={() => closeModal(index)}>
+          <Modal className="userEventModal"show={showModal[index]} onHide={() => closeModal(index)}>
   <Modal.Header closeButton>
     <Modal.Title>{element.titoloEvento}</Modal.Title>
   </Modal.Header>
   {renderImmagine(element.immagineEvento)}
   <Modal.Body>
     <p>{element.descrizione}</p>
-    <p>artisti:</p>
-  {element.artistiEvento.map((a, index) => {
-      return <span key={index}>{a}</span>; // Aggiunta della keyword "return" per restituire il valore
-    })}
+    <h5>artisti:</h5>
+  <div>
+      {element.artistiEvento.map((a, index) => {
+        return <span key={index}>{a}</span>;
+      })}
+    </div>
   </Modal.Body>
-  <Modal.Footer>
-    
+  <Modal.Footer className="d-flex text-align-start">
+   {element.luogo} ° {element.dataEvento}
   </Modal.Footer>
 </Modal>
           </div>
