@@ -73,12 +73,12 @@ const closeModal = (index) => {
       const moment = require('moment');
   const date = moment(element.dataEvento);
   const giorno = date.format('DD');
-  const mese = date.format('MMMM');  
+  const mese = date.format('MMM');  
 
   return (
     <div className="dateSquare" style={{margin:"0", padding:"0"}}>
-      <span>{mese}</span>
-      <p style={{fontSize:"3.5em", padding:"0", margin:"0"}}>{giorno}</p>
+      <span style={{padding:"0", margin:"0", lineHeight:"1"}}>{mese}</span>
+      <p style={{fontSize:"3.5em", padding:"0", margin:"0" , lineHeight:"1"}}>{giorno}</p>
       
     </div>
   );
