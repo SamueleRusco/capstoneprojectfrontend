@@ -23,7 +23,7 @@ const Home = () => {
 return (
 <div className="row m-0 p-0" style={{width:"100vw"}}>
   <div className="col-12 col-md-5 m-0 p-0" style={{ height:"fit-content",}}>
-<h6  style={{textAlign:"start", marginLeft:"30px",marginTop:"30px", fontFamily:"monospace"}}>SCRIVICI QUELLO CHE VUOI TIPO IL TUO MOTTO XD</h6>
+<h6  style={{textAlign:"start", marginLeft:"30px",marginTop:"30px", fontStyle:"italic", fontFamily:"monospace"}}>CATTURA L'ESSENZA DELLA MELODIA CHE DANZA NELL'INFINITO, MENTRE LE NOTE SI LIBRANO NELL'AIRA, TRASPORTANDO L'ANIMA IN UN VORTICE DI EMOZIONI SENZA FINE.</h6>
 <ul className="navBar" style={{marginTop:"30px",marginLeft:"30px", textAlign:"start"}}>
 <Link to="/playlist" className="linkTo">PLAYLISTS</Link>
 <Link to="/contacts" className="linkTo">CONTACTS</Link>
@@ -41,53 +41,10 @@ return (
     <img className="m-0 p-0" style={{ position: "absolute", width:"100%", top:"100px",  }} src={homePic} alt="Immagine" />
   
 </div>
-{/* <div>
-    {content}
-  </div> */}
+
 
     </div>
-//   <div className="d-flex flex-column " style={{maxWidth:"90vw", alignItems:"center"}}>
-//     <NavBar/>
-//   <h1 className="big full m-0 p-0 mt-3">JAKOLESS LIMITED</h1>
-//   <h1 className="big line m-0 p-0">JAKOLESS LIMITED</h1>
-//   <h1 className="big line m-0 p-0 mb-2">JAKOLESS LIMITED</h1>
 
-
-// <div className="justify-content-around" style={{maxWidth:"100vw"}}>
-  
-//   <div className="row" style={{textAlign:"start"}}>
-//     <div className="col-md-6  d-flex flex-column align-items-center">
-//     <p className="text-wrap">
-//       Jakoless Limited è una società di musica dinamica e innovativa 
-//       che si dedica a fornire soluzioni creative ai problemi della produzione 
-//       e distribuzione musicale moderna. Fondata da un gruppo di 
-//       professionisti del settore musicale con anni di esperienza alle spalle, 
-//       la nostra società si impegna a offrire servizi di alta qualità che soddisfino 
-//       le esigenze dei musicisti, dei produttori e 
-//       degli appassionati di musica in generale.</p> 
-//       <img className="imgHome m-1" src="http://placekitten.com/800/800" alt="Immagine 1" />
-// </div>
-//      <div className="col d-flex flex-column-reverse flex-md-column align-items-center">
-//       <img className="imgHome m-1" src="http://placekitten.com/800/800" alt="Immagine 1" />
-//       <p>La missione di Jakoless Limited 
-//       è quella di essere un punto di riferimento per la 
-//       produzione musicale di qualità e di aiutare i propri clienti a realizzare 
-//       il loro potenziale creativo. La società si impegna a 
-//       lavorare a stretto contatto con i propri clienti per 
-//       capire le loro esigenze e creare soluzioni personalizzate 
-//       che si adattino alle loro esigenze specifiche. 
-//       La cultura aziendale di Jakoless Limited è basata sulla collaborazione, 
-//       la creatività e l’innovazione. La società si avvale di un team 
-//       altamente qualificato e motivato di musicisti, tecnici del 
-//       suono e produttori che lavorano insieme per produrre risultati straordinari. 
-//     </p>
-    
-//     </div>
-//   </div>
-
-  
-  
-// </div>
 
   
   );
@@ -96,8 +53,3 @@ return (
 export default Home;
 
 
-{/* <p className="m-1">
-      Jakoless Limited è una società di musica dinamica e innovativa che si dedica a fornire soluzioni creative ai problemi della produzione e distribuzione musicale moderna. Fondata da un gruppo di professionisti del settore musicale con anni di esperienza alle spalle, la nostra società si impegna a offrire servizi di alta qualità che soddisfino le esigenze dei musicisti, dei produttori e degli appassionati di musica in generale. La missione di Jakoless Limited è quella di essere un punto di riferimento per la produzione musicale di qualità e di aiutare i propri clienti a realizzare il loro potenziale creativo. La società si impegna a lavorare a stretto contatto con i propri clienti per capire le loro esigenze e creare soluzioni personalizzate che si adattino alle loro esigenze specifiche. La cultura aziendale di Jakoless Limited è basata sulla collaborazione, la creatività e l’innovazione. La società si avvale di un team altamente qualificato e motivato di musicisti, tecnici del suono e produttori che lavorano insieme per produrre risultati straordinari.
-    </p>
-
-     <img className="imgHome m-1" src="http://placekitten.com/800/800" alt="Immagine 1" /> */}

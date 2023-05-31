@@ -17,6 +17,9 @@ if (role === "ROLE_ADMIN") {
     content = <EventoUser/>;
   } 
     return (<div><NavBar/>
+    <div style={{width:"90vw", textAlign:"end"}}>
+            <p className="full" style={{fontSize:"2.5em", color:"grey"}}>EVENTS</p>
+        </div>
     <div>
         {content}
     </div>

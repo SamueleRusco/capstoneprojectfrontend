@@ -58,6 +58,9 @@ const handleSubmit = async (event) => {
 
   return   (
     <div style={{width:"fit-content", display:"flex", flexDirection:"column", alignItems:"center"}}>
+      <div style={{width:"90vw", textAlign:"end"}}>
+            <p className="full" style={{fontSize:"2.5em", color:"grey"}}>NEWSLETTER</p>
+      </div>
       <h1>RIMANIAMO IN CONTATTO</h1>
       <p>iscriviti alla newsletter per ricevere costanti aggiornamenti riguardanti i nostri prodotti</p>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
